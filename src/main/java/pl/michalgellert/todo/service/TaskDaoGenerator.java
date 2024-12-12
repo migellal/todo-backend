@@ -1,0 +1,29 @@
+package pl.michalgellert.todo.service;
+
+import org.springframework.stereotype.Service;
+import pl.michalgellert.todo.model.TaskDAO;
+import pl.michalgellert.todo.model.TaskDTO;
+import pl.michalgellert.todo.model.TaskId;
+
+@Service
+public class TaskDaoGenerator {
+
+    public TaskDAO createTask(TaskDTO taskDTO) {
+        return new TaskDAO(IdGeneratorSingleton.getNextId(), taskDTO.getTitle(), taskDTO.getDescription());
+    }
+
+    private static class IdGeneratorSingleton {
+
+        private static long id = 0;
+
+        private IdGeneratorSingleton() {
+        }
+
+        public static TaskId getNextId() {
+            id++;
+            return new TaskId(id);
+        }
+    }
+
+}
+
