@@ -23,6 +23,9 @@ public class TaskDTO {
         this.title = title;
     }
 
+    public TaskDTO() {
+    }
+
     public long getId() {
         return id;
     }

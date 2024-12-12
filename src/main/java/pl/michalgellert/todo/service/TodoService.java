@@ -1,6 +1,5 @@
 package pl.michalgellert.todo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.michalgellert.todo.model.TaskDAO;
 import pl.michalgellert.todo.model.TaskDTO;
@@ -13,8 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class TodoService {
 
-    @Autowired
-    private TaskDaoGenerator taskDaoGenerator;
+    private final TaskDaoGenerator taskDaoGenerator = new TaskDaoGenerator();
     private final List<TaskDAO> tasks = new ArrayList<>();
 
     public void addTask(TaskDTO taskDTO) {

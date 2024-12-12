@@ -13,18 +13,21 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/tasks")
-    public void addTask(TaskDTO taskDTO) {
+    public void addTask(@RequestBody TaskDTO taskDTO) {
         todoService.addTask(taskDTO);
     }
 
+    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/tasks")
     public List<TaskDTO> getTasks() {
         return todoService.getTasks();
     }
 
-    @DeleteMapping("/tasks/{id}")
-    public void deleteTask(@PathVariable long taskId) {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @DeleteMapping("/tasks/{taskId}")
+    public void deleteTask(@PathVariable("taskId") long taskId) {
         todoService.removeTask(taskId);
     }
 }

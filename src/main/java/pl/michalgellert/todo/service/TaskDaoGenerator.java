@@ -1,11 +1,9 @@
 package pl.michalgellert.todo.service;
 
-import org.springframework.stereotype.Service;
 import pl.michalgellert.todo.model.TaskDAO;
 import pl.michalgellert.todo.model.TaskDTO;
 import pl.michalgellert.todo.model.TaskId;
 
-@Service
 public class TaskDaoGenerator {
 
     public TaskDAO createTask(TaskDTO taskDTO) {
@@ -26,4 +24,3 @@ public class TaskDaoGenerator {
     }
 
 }
-
